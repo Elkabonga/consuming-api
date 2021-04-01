@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>consuming-api</title>
+  </head>
+  <body>
+    <h1>Consumindo API no Front e no Back-end | CodeDrops #45</h1>
+    <p>1º no terminal execute npm start</p>
+    <p>2º em outro terminal execute npx lite-server</p>
+
+    <div id="main"></div>
+
+    <script>
+      async function getContent() {
+        try {
+          const response = await fetch("http://localhost:4567");
+          console.log("response", response);
+          const data = await response.json();
+          console.log("data", data);
+          show(data);
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+      getContent();
+
+      function show(users) {
+        let output = "";
+
+        for (let user of users) {
+          output += `<li>name: ${user.name}, username: ${user.username}, email: ${user.email}<br>&nbsp&nbsp&nbsp&nbsp
+          endereço: street: ${user.address.street} suite: ${user.address.suite} zipcode: ${user.address.zipcode}`;
+        }
+        document.getElementById("main").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
