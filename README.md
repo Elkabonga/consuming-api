@@ -1,6 +1,6 @@
 # consuming-api
 
-    Consumindo API no Front e no Back-end | CodeDrops #45</h1>
+    Consumindo API no Front e no Back-end | CodeDrops #45
     
     1º no terminal execute npm start</p>
     
